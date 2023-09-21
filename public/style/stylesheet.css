@@ -1,0 +1,34 @@
+/* styles.css */
+.sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    width: 250px;
+    background-color: #333;
+    color: #fff;
+    overflow-y: auto;
+}
+
+.sidebar ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.sidebar ul li {
+    padding: 10px;
+}
+
+.sidebar ul li a {
+    text-decoration: none;
+    color: #fff;
+}
+
+.sidebar ul li a:hover {
+    background-color: #555;
+}
+
+.content {
+    margin-left: 300px;
+    /* Add other styles for the main content area */
+}
