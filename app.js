@@ -25,7 +25,7 @@ app.listen(PORT, () => console.log("Server is running on port:", PORT));
 
 // CRUD
 app.get("/", (req, res) => {
-    res.sendFile(path.resolve("public/frontpage.html"));
+    res.sendFile(path.resolve("public/home.html"));
 });
 
 app.get("/", (req, res) => {

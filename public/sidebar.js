@@ -2,12 +2,12 @@ const sideBar = document.getElementById("sidebar");
 
 sideBar.innerHTML = `
 <ul>
-<li><a href="#">1. Home</a></li>
-<li><a href="#">2. Node.js and express</a></li>
+<li><a href="./home.html">1. Home</a></li>
+<li><a href="./node.html">2. Node.js and express</a></li>
 <li><a href="#">3. REST API</a></li>
-<li><a href="#">4. Data types</a></li>
+<li><a href="./datatypes.html">4. Data types</a></li>
 <li><a href="#">5. Functions</a></li>
-<li><a href="#">6. Loops</a></li>
+<li><a href="./loops.html">6. Loops</a></li>
 <li><a href="#">7. Fetch</a></li>
 <li><a href="#">8. Git</a></li>
 <li><a href="#">9. XSS</a></li>

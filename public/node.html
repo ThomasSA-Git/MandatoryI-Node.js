@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="/style/stylesheet.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.3.1/styles/default.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.3.1/highlight.min.js"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Node.js and express</title>
+</head>
+<body>
+    
+        <script>
+            // Initialize Highlight.js
+            hljs.highlightAll();
+        </script>
+
+    <div class="sidebar" id="sidebar"></div>
+
+ 
+    <div class="content">
+        <hr>
+        <h1>Node.js</h1>
+        <hr>
+        <p>Node.js is an open-source runtime enviroment that makes it possible to execute JS outside a webbrowser.
+            In this project it is used for the server side. It gives access to a variety of libraries and packages through npm (node package manager).
+            <br>
+            As with other package managers such as maven or graddle, npm handles dependencies. An important part of Node.js projects is the package.json file. It contains metadata about the project and its dependecies.
+        </p>
+
+        
+    <pre class="pre">
+        <code class="javascript">
+            {
+                "dependencies": {
+                    "express": "4.18.2"
+                }
+            }
+        </code>
+        </pre>
+        <p>Above is a simple example of this with express listed as a dependency. The needed libaries can be installed easily using npm in the terminal.
+        </p>
+        <pre class="pre">
+            <code class="javascript">
+                // Examples of commands to use in the terminal
+                $ npm i express
+                // Or
+                $ npm install express
+            </code>
+            </pre>
+        <p>Installing this will create the package-lock.json file that manages dependencies. It ensures that dependency management is reliable and consistent by:</p>
+        <ul>
+            <li>Dependency version locking: Locks too specific versions of all packages. That ensures you get the exact same versions each time you or someone else install so that there are no unexpected updates or changes.</li>
+            <li>Dependency tree: Shows how different packages depend on eachoter.</li>
+            <li>Reproducibility: Makes it reproducable over different enviroments and installations. This gives a consistent development and deployment process.</li>
+        </ul>
+        <br>
+        <p>As mentioned earlier the package.json can hold other metadata about the project besides the dependencies. These can be added from the terminal with the command below.</p>
+        <pre class="pre">
+            <code class="javascript">
+                $ npm init
+            </code>
+        </pre>
+        <p>This will give you the option to add additional info about the project. Se below for example.</p>
+        <pre class="pre">
+            <code class="javascript">
+                {
+                    "dependencies": {
+                      "express": "^4.18.2"
+                    },
+                    "name": "mandatory_i",
+                    "description": "mandatory assignment for node.js",
+                    "type": "module",
+                    "version": "0.0.1",
+                    "main": "app.js",
+                    "devDependencies": {},
+                    "scripts": {
+                      "test": "echo \"Error: no test specified\" && exit 1"
+                    },
+                    "repository": {
+                      "type": "git",
+                      "url": "git+https://github.com/ThomasSA-Git/MandatoryI-Node.js.git"
+                    },
+                    "keywords": [
+                      "Mandatory",
+                      "node.js",
+                      "learning-catalogue",
+                      "express",
+                      "javascript"
+                    ],
+                    "author": "Thomas S. Andersen",
+                    "license": "MIT",
+                    "bugs": {
+                      "url": "https://github.com/ThomasSA-Git/MandatoryI-Node.js/issues"
+                    },
+                    "homepage": "https://github.com/ThomasSA-Git/MandatoryI-Node.js#readme"
+                  }
+                  
+            </code>
+        </pre>
+
+        <p>As you see there are several details added to the package above. A detail worth of notice that was added manually is type. By default it is CommonJS but here it is set to module.
+            This affects how how you import and export code from other files and also how it is loaded.
+        </p>
+        <ul>
+            <li>CommonJS uses require and module.exports.</li>
+            <li>Modules (ES6) uses import/export.</li>
+        </ul>
+        <p>CommonJS is often used serverside whereas Modules is used both server and clientside. Using modules can help make the code better organized and more efficient.</p>
+
+        <pre class="pre">
+            <code class="javascript">
+                // Example of import using Modules
+                import { getExampleObject } from "./objectCreator.js";
+                
+                // Example of export using Modules
+                export {
+                    getExampleObject,
+                    addExampleObject
+                };
+                // Or
+                export function getExampleObject(){
+
+                }
+                // Or
+                export const exampleValue = "example";
+
+
+                // Example of import using CommonJS
+                const objectCreator = require("./objectCreator.js");
+
+                // Example of export using CommonJS
+                module.exports = {
+                    getExampleObject,
+                    addExampleObject
+                };
+
+            </code>
+        </pre>
+    </div>
+    <script type="module" src="sidebar.js"></script>
+</body>
+</html>

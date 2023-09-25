@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="/style/stylesheet.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.3.1/styles/default.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.3.1/highlight.min.js"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Data types</title>
+</head>
+<body>
+    <script>
+        // Initialize Highlight.js
+        hljs.highlightAll();
+    </script>
+
+    <div class="sidebar" id="sidebar"></div>
+
+ 
+    <div class="content">
+        <hr>
+        <h1>Data types</h1>
+        <hr>
+
+        <p>In JavaScript the type of variable is defined by the value it holds unlike other programming languages that has them explicitly declared (String, int, boolean etc.).
+            Instead they are declared with const, let and var. </p>
+
+            <ul>
+                <li>const (immutable): const is used for variables whose values should not change after initialization.
+                    It is often used for values that represent constants or unchanging data.
+                    <br>
+                    Example: const pi = 3.14159;</li>
+                <li>let (Mutable): let is used for variables whose values can be changed or reassigned.
+                    It is the preferred choice when a variable's value may change during the program's execution.
+                    <br>
+                    Example: let counter = 0;</li>
+                <li>var: var was used in older versions of JavaScript to declare variables. It has functional scope (scoped to the nearest function), global scoping when set out of a function and some hoisting behavior.
+                    It is less commonly used now with const and let being preferred due to their block scope and more predictable behavior.</li>
+            </ul>
+
+            <p>As a rule you should never use var due to it's unpredictable behaviour. Instead you should use const when possible and let when it is necessary to change
+                the value of a variable during execution of the program.
+            </p>
+
+        <h2>Primitive Data Types</h2>
+        <p>
+            <strong>1. String:</strong> Represents text characters and is enclosed in single (' ') / (` `) or double (" ") quotes.
+        </p>
+        <pre class="pre">
+            <code class="javascript">
+                const message = 'Hello, World!';
+                const message = `Hello, World!`;
+                const message = "Hello, World!";
+            </code>
+        </pre>
+    
+        <p>
+            <strong>2. Number:</strong> Represents numeric values, fx int or float numbers.
+        </p>
+        <pre class="pre">
+            <code class="javascript">
+                const num = 42;
+            </code>
+        </pre>
+    
+        <p>
+            <strong>3. Boolean:</strong> Represents true or false values.
+        </p>
+        <pre class="pre">
+            <code class="javascript">
+                const isTrue = true;
+                const isFalse = false;
+            </code>
+        </pre>
+    
+        <p>
+            <strong>4. BigInt:</strong> Represents large integers.
+        </p>
+        <pre class="pre">
+            <code class="javascript">
+                const bigIntValue = 1234567890123456789012345678901234567890n;
+            </code>
+        </pre>
+    
+        <h2>Special Data Types</h2>
+        <p>
+            <strong>5. Undefined:</strong> Represents a variable that has been declared but hasn't been assigned a value.
+        </p>
+        <pre class="pre">
+            <code class="javascript">
+                let undefinedVar;
+            </code>
+        </pre>
+    
+        <p>
+            <strong>6. null:</strong> Represents the intentional absence of any object or value.
+        </p>
+        <pre class="pre">
+            <code class="javascript">
+                const emptyValue = null;
+            </code>
+        </pre>
+    
+        <h2>Symbol</h2>
+        <p>
+            <strong>7. Symbol:</strong> Represents a unique and immutable value that is often used as an object property key.
+        </p>
+        <pre class="pre">
+            <code class="javascript">
+                const uniqueSymbol = Symbol('description');
+            </code>
+        </pre>
+        <br>
+        <br>
+
+        <hr>
+        <h1>Objects, Arrays, and Dates in JavaScript</h1>
+        <hr>
+
+    <p>
+        <strong>1. Objects:</strong> Objects in JavaScript are collections of key-value pairs where each key is a string and each value can be of any data type.
+    </p>
+    <pre class="pre">
+        <code class="javascript">
+const person = {
+    name: 'Thomas',
+    age: 39,
+    isStudent: true
+};
+        </code>
+    </pre>
+
+    <p>
+        <strong>2. Arrays:</strong> Arrays are ordered lists of values (including objects) in JavaScript. Elements in an array can be of different data types.
+    </p>
+    <pre class="pre">
+        <code class="javascript">
+const colors = ['red', 'green', 'blue'];
+        </code>
+    </pre>
+
+    <p>
+        <strong>3. Dates:</strong> Dates in JavaScript represent date and time information. They are useful for working with timestamps and managing calendar-related operations.
+    </p>
+    <pre class="pre">
+        <code class="javascript">
+const currentDate = new Date();
+        </code>
+    </pre>
+    </div>
+
+    <script type="module" src="sidebar.js"></script>
+</body>
+</html>

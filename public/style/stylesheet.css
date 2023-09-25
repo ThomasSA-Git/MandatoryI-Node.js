@@ -30,5 +30,28 @@
 
 .content {
     margin-left: 300px;
+    margin-right: 150px;
+    margin-bottom: 150px;
     /* Add other styles for the main content area */
+}
+.pre {
+     border: 2px solid #333; /* Border style: 2px width, solid line, color #333 */ 
+}
+h1 {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 24px;       /* Set the font size */
+    margin: 10px 0;        /* Set top and bottom margins */
+    line-height: 1.5;      /* Set the line height (controls line spacing) */
+}
+
+/* Apply styles to <p> elements */
+p {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 16px;       /* Set the font size */
+    margin: 10px 0;        /* Set top and bottom margins */
+    line-height: 1.5;      /* Set the line height (controls line spacing) */
+}
+li {
+    font-family: Arial, Helvetica, sans-serif;
+    line-height: 1.5;      /* Set the line height (controls line spacing) */
 }

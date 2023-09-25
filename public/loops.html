@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="/style/stylesheet.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.3.1/styles/default.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.3.1/highlight.min.js"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // Initialize Highlight.js
+        hljs.highlightAll();
+    </script>
+
+    <div class="sidebar" id="sidebar"></div>
+
+ 
+    <div class="content">
+        <h1>Array loop methods in JavaScript</h1>
+    
+        <p>JavaScript provides various loop methods to work with arrays. Below you will see some of those and examples of how to use them. These are just some of the
+            loop methods there are in the JavaScript toolbox.
+            <br>
+            Almost all of them have specific functionality except for foreach. There is no build in iteration code and you have to input that yourself.
+            That makes it more prone to error. With other loop methods the intent is explicit due to the naming which makes it eaiser to read.
+            By using the other methods you can also chain multiple loop calls together to make them more complex and effective.
+            Lastly they create new arrays or values without modifying the original array which promotes immutability and makes
+            the code more predictable.
+        </p>
+        <br>
+    
+        <p>
+            <strong>forEach:</strong> Executes a provided function once for each array element.
+        </p>
+        <pre class="pre">
+            <code class="javascript">
+            const numbers = [1, 2, 3, 4, 5];
+            numbers.forEach(number => {
+                console.log(number);
+    });
+            </code>
+        </pre>
+    
+        <p>
+            <strong>map:</strong> Creates a new array with the results of calling a provided function on every element in the array.
+        </p>
+        <pre class="pre">
+            <code class="javascript">
+            const numbers = [1, 2, 3, 4, 5];
+            const doubled = numbers.map(number => number * 2);
+            console.log(doubled); // Outputs [2, 4, 6, 8, 10]
+            </code>
+        </pre>
+
+        <p>
+            <strong>filter:</strong> Creates a new array with all elements that pass a test (provided function).
+        </p>
+        <pre class="pre">
+            <code class="javascript">
+            const numbers = [1, 2, 3, 4, 5];
+            const evenNumbers = numbers.filter(number => number % 2 === 0);
+            console.log(evenNumbers); // Outputs [2, 4]
+            </code>
+        </pre>
+    
+        <p>
+            <strong>reduce:</strong> Applies a function against an accumulator and each element in the array (from left to right) to reduce it to a single value.
+        </p>
+        <pre class="pre">
+            <code class="javascript">
+            const numbers = [1, 2, 3, 4, 5];
+            const sum = numbers.reduce((accumulator, number) => accumulator + number, 0); // Initial value of accumulator is 0
+            console.log(sum); // Outputs 15
+            </code>
+        </pre>
+    
+        <p>
+            <strong>findIndex:</strong> Returns the index of the first element in the array that satisfies the provided testing function.
+        </p>
+        <pre class="pre">
+            <code class="javascript">
+            const numbers = [10, 20, 30, 40, 50];
+            const index = numbers.findIndex(number => number > 25);
+            console.log(index); // Outputs 2 (the index of the first number > 25)
+            </code>
+        </pre>
+
+        <p>
+            <strong>find:</strong> Returns the first element in the array that satisfies the provided testing function.
+        </p>
+        <pre class="pre">
+            <code class="javascript">
+            const numbers = [10, 20, 30, 40, 50];
+            const foundNumber = numbers.find(number => number > 25);
+            console.log(foundNumber); // Outputs 30 (the first number > 25)
+            </code>
+        </pre>
+
+        <p>
+            <strong>sort:</strong> Sorts the elements of an array in place and returns the sorted array.
+        </p>
+        <pre class="pre">
+            <code class="javascript">
+            const fruits = ['apple', 'banana', 'cherry', 'date'];
+            fruits.sort();
+            console.log(fruits); // Outputs ['apple', 'banana', 'cherry', 'date']
+            </code>
+        </pre>
+    </div>
+    <script type="module" src="sidebar.js"></script>
+</body>
+</html>
