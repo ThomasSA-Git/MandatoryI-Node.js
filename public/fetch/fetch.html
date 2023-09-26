@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <link rel="stylesheet" href="../assets/css/stylesheet.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.3.1/styles/default.min.css"
+    />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.3.1/highlight.min.js"></script>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Mandatory I</title>
+  </head>
+  <body>
+    <div class="sidebar" id="sidebar"></div>
+
+    <main class="content">
+      <hr />
+      <h1>Fetch</h1>
+      <hr />
+
+      <p>
+        In JavaScript "fetch" is a function used to make network requests to
+        retrieve data from an URL. It is typically used for fetching data from a
+        web server. It returns a promise that resolves to a response mathcing
+        the response to the request. This makes it possible to work with data
+        from the server. A promise is used in asynchronous operations. It
+        represents a value that is yet to be resolved or rejected. It is
+        resolved when the operation is successful and rejected when it
+        encounters an error.
+      </p>
+      <br />
+      <p>Below is in example of a simple fetch without error handling.</p>
+      <pre class="pre">
+            <code class="javascript">
+                fetch("yourURL")
+                .then((response) => respone.json())
+                .then((result) => {
+                    // Handle result of fetch here.
+                })
+            </code>
+        </pre>
+      <p>
+        The raw response from a fetch is a byte stream and needs to be parsed
+        into a format that can be handled. In the example it is handled with
+        json() which makes it possible to handle it as a json object. The
+        .then() allows us to handle it. In this case firstly by parsing it to a
+        json object and secondly handling that object however necessary.
+        <br />
+        In the example below there is some added error handling. If the request
+        is rejected for some reason the an error in thrown. Lastly the error is
+        "catched" and is the error message is logged to the console.
+      </p>
+      <pre class="pre">
+            <code class="javascript">
+                fetch("yourURL")
+                .then(((response) => {
+                    if(!response.ok){
+                        throw new Error("Error getting data");
+                    }
+                    return respone.json();
+                }))
+                then((result) => {
+                    // Handle result of fetch here.
+                })
+                .catch(error => {
+                    console.error('There was a problem with the fetch operation:', error);
+                  });
+            </code>
+        </pre>
+      <p>
+        You can use async/await with the fetch function to make asynchronous
+        requests in a more synchronous and readable manner. Using async/await
+        makes your code appear more sequential and easier to read. Using
+        async/await doesn't change the behavior of the fetch request.
+        It still performs the request asynchronously. It just simplifies the
+        code structure and makes it look more like synchronous code which can
+        be easier to read and maintain.
+        <br />
+        Since we haven't discussed this in class I won't be going to much into
+        detail with this with examples.
+      </p>
+    </main>
+    <script src="/assets/js/sidebar.js"></script>
+  </body>
+</html>

@@ -33,7 +33,7 @@ import {
 
 // CRUD
 app.get("/", (req, res) => {
-  res.sendFile(path.resolve("public/home.html"));
+  res.sendFile(path.resolve("public/home/home.html"));
 });
 
 app.get("/movies", (req, res) => {
