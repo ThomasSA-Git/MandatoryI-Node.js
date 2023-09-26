@@ -62,20 +62,19 @@ app.post("/movies", (req, res) => {
   }
 });
 
-app.patch("/movies/:name", (req, res) => {
-  const movieName = req.params.name;
-  const formattedMovieName = movieName.charAt(0).toUpperCase() + movieName.slice(1).toLowerCase();
+app.patch("/movies/:id", (req, res) => {
+  const movieId = Number(req.params.id);
   const movieToUpdate = req.body;
 
-  if (!movieToUpdate || !movieToUpdate.name || !movieToUpdate.prodYear) {
+  if (!movieToUpdate || !movieToUpdate.name || !movieToUpdate.prodYear || !movieToUpdate.genre) {
     res.send({ error: "Missing movie data." });
     return;
   }
 
-  const updatedMovie = updateMovie(formattedMovieName, movieToUpdate);
+  const updatedMovie = updateMovie(movieId, movieToUpdate);
 
   if (updatedMovie.error) {
-    res.status(404).send({ error: "No movie with that name." });
+    res.status(404).send({ error: "No movie with that id." });
   } else {
     res.send(updatedMovie);
   }
@@ -90,7 +89,7 @@ app.delete("/movies/:name", (req, res) => {
   if (deleteMovie.error) {
     res.status(404).send({ error: "No movie with that name." });
   } else {
-    res.send(deleteMovie);
+    res.send(deletedMovie);
   }
 
 });

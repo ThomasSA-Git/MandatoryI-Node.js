@@ -1,17 +1,20 @@
 const movies = [
     {   
         id: 1,
-        name: "Tenacious D in The Pick of destiny",
-        prodYear: 2006
+        name: "The room",
+        genre: "Drama",
+        prodYear: 2003
     },
     {   
         id: 2,
-        name: "School of Rock",
+        name: "School of rock",
+        genre: "Comedy",
         prodYear: 2003
     },
     {   
         id: 3,
         name: "Anchorman",
+        genre: "Comedy",
         prodYear: 2004
     }
 ];
@@ -33,13 +36,13 @@ export function addMovie(movie) {
     return movies.find((movie) => movie.id === currentId)
 }
 
-export function updateMovie(movieName, updatedMovie) {
-    const existingMovie = movies.findIndex((movie) => movie.name === movieName);
-  
+export function updateMovie(movieId, updatedMovie) {
+    const existingMovie = movies.findIndex((movie) => movie.id === movieId);
+    
     if (existingMovie === -1) {
-      return { error: "No movie with that name." };
+      return { error: "No movie with that id." };
     } else {
-      movies[existingMovie] = { ...movies[existingMovie], ...updatedMovie };
+      movies[existingMovie] = { ...movies[existingMovie], ...updatedMovie, id: movieId };
       return movies[existingMovie];
     }
   }
