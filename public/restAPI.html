@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/style/stylesheet.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.3.1/highlight.min.js"></script>
+    <title>REST API and express</title>
+</head>
+<body>
+    <div class="sidebar" id="sidebar"></div>
+    <div class="content">
+        <hr>
+        <h1>REST API and Express</h1>
+        <hr>
+        <p>For this project I have set up a REST API and used to Express along with Node.js to simplify and streamline it.
+        </p>
+        <br>
+        <h2>REST API</h2>
+        <p> A REST API (Representational State Transfer Application Programming Interface) is a set of rules and conventions for building and interacting with web services.
+            It uses standard HTTP methods like GET, POST, PUT, DELETE to perform actions on resources.
+            REST APIs enable communication between different applications over the internet allowing them to request and exchange data in a consistent and predictable manner. 
+            REST APIs are commonly used for web application development providing a way to get, create, update, and delete (CRUD) data on remote servers.
+            <br>
+            There are two important conventions to following when designing a REST API.
+        </p>
+            <ol>
+                <li>Ordering of HTTP methods</li>
+                <li>Endpoints should reflect the underlying collections</li>
+            </ol>
+            <p>Example:</p>
+            <table>
+                <thead>
+                    <tr>
+                        <th>HTTP method</th>
+                        <th>Endpoint</th>
+                    </tr>
+                </thead>
+                <tr>
+                    <td>GET</td>
+                    <td>/movies</td>
+                </tr>
+
+                <tr>
+                    <td>GET</td>
+                    <td>/movies/{id}</td>
+                </tr>
+                <tr>
+                    <td>POST</td>
+                    <td>/movies</td>
+                </tr>
+                <tr>
+                    <td>PATCH</td>
+                    <td>/movies/{id}</td>
+                </tr>
+                <tr>
+                    <td>PUT</td>
+                    <td>/movies/{id}</td>
+                </tr>
+                <tr>
+                    <td>DELETE</td>
+                    <td>/movies/{id}</td>
+                </tr>
+            </table>
+            <p>Here the different endpoints all refer to a collection server side. Because it is a collection it is assumed that there are
+                multiple objects it movie in plural. When referencing a specific object an id, name or some other unique property of the object
+                is needed to find and identify it so that it can be handled properly according to specific endpoint that is called.
+            </p>
+        <br>
+        <h2>Express</h2>
+        <p>Express.js is a web application framework with Node.js in the development of web applications and APIs. In the project I use for:
+        </p>
+        <ul>
+            <li>Routing: Easy definition of routes for handling different HTTP requests.</li>
+            <li>Middleware: Integration of middleware functions for tasks like data parsing and authentication.</li>
+            <li>Port Handling: Management of server ports for listening to incoming requests.</li>
+            <li>Static File Serving: Efficient serving of static files like HTML, CSS, and JavaScript.</li>
+            <li>JSON Parsing: Built-in support for handling JSON data.</li>
+        </ul>
+        <p>
+            <strong>Example of CRUD:</strong> Below is an example of full CRUD REST API I made for this project.
+        </p>
+        <pre class="pre">
+            <code class="javascript">
+
+                app.get("/movies", (req, res) => {
+                    res.send(getMovies());
+                  });
+                  
+                  app.get("/movies/:name", (req, res) => {
+                    const movieName = req.params.name;
+                    const formattedMovieName = movieName.charAt(0).toUpperCase() + movieName.slice(1).toLowerCase();
+                    res.send(getMovie(formattedMovieName));
+                  });
+                  
+                  app.post("/movies", (req, res) => {
+                    const newMovie = req.body;
+                    if (!newMovie || !newMovie.name || !newMovie.prodYear) {
+                      res.send({ error: "Missing mountain data." });
+                      return;
+                    }
+                  
+                    const addedMovie = addMovie(newMovie);
+                  
+                    if (addedMovie.error) {
+                      res.status(404).send({ error: "No movie with that name." });
+                    } else {
+                      res.send(addedMovie);
+                    }
+                  });
+                  
+                  app.patch("/movies/:name", (req, res) => {
+                    const movieName = req.params.name;
+                    const formattedMovieName = movieName.charAt(0).toUpperCase() + movieName.slice(1).toLowerCase();
+                    const movieToUpdate = req.body;
+                  
+                    if (!movieToUpdate || !movieToUpdate.name || !movieToUpdate.prodYear) {
+                      res.send({ error: "Missing movie data." });
+                      return;
+                    }
+                  
+                    const updatedMovie = updateMovie(formattedMovieName, movieToUpdate);
+                  
+                    if (updatedMovie.error) {
+                      res.status(404).send({ error: "No movie with that name." });
+                    } else {
+                      res.send(updatedMovie);
+                    }
+                  });
+            </code>
+            </pre>
+            <p>As you can see it use the conventions mentioned earlier and handles errors that may occur during or with the correspondance.</p>
+    <table>
+        <thead>
+            <tr>
+                <th>Movie name</th>
+                <th>Production year</th>
+            </tr>
+        </thead>
+    <tbody id="table"></tbody>
+    </table>
+    </div>
+    <script type="module" src="sidebar.js"></script>
+    <script type="module" src="fetch.js"></script>
+</body>
+</html>

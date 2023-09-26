@@ -9,11 +9,7 @@
     <title>Node.js and express</title>
 </head>
 <body>
-    
-        <script>
-            // Initialize Highlight.js
-            hljs.highlightAll();
-        </script>
+
 
     <div class="sidebar" id="sidebar"></div>
 
@@ -26,6 +22,8 @@
             In this project it is used for the server side. It gives access to a variety of libraries and packages through npm (node package manager).
             <br>
             As with other package managers such as maven or graddle, npm handles dependencies. An important part of Node.js projects is the package.json file. It contains metadata about the project and its dependecies.
+            <br>
+            Below is a simple example of this with express listed as a dependency. The needed libaries can be installed easily using npm in the terminal.
         </p>
 
         
@@ -38,7 +36,7 @@
             }
         </code>
         </pre>
-        <p>Above is a simple example of this with express listed as a dependency. The needed libaries can be installed easily using npm in the terminal.
+        <p> Below are the commands needed to install express.
         </p>
         <pre class="pre">
             <code class="javascript">
@@ -114,7 +112,7 @@
                 import { getExampleObject } from "./objectCreator.js";
                 
                 // Example of export using Modules
-                export {
+                export default {
                     getExampleObject,
                     addExampleObject
                 };
@@ -137,6 +135,31 @@
 
             </code>
         </pre>
+        <br>
+        <h2>Nodemon</h2>
+        <p>Nodemon is a utility for Node.js applications that automatically monitors changes in your project files and restarts your server when changes are detected. 
+            It simplifies the development process so that you don't need to manually stop and restart your application each time you make code changes.
+            <br>
+            Below you can see the command to install it.
+        </p>
+        <pre class="pre">
+            <code class="javascript">
+                $ npm install -g nodemon
+            </code>
+            </pre>
+            <p>There are some pros and cons to consider when using it.</p>
+            <ul>
+                <li>Pros:</li>
+                <ul>
+                  <li>Automatic Restart: Nodemon automatically restarts your application when code changes reducing downtime during development.</li>
+                  <li>Improved Productivity: It streamlines the development process so that you don't need to manually stop and restart the server after code modifications.</li>
+                </ul>
+                <li>Cons:</li>
+                <ul>
+                  <li>Resource Intensive: Nodemon continuously watches for file changes which can consume system resources. For small projects this shouldn't be an issue.</li>
+                  <li>Not Suitable for All Scenarios: While Nodemon is excellent for development it may not be suitable for production environments where code changes should be carefully controlled.</li>
+                </ul>
+              </ul>
     </div>
     <script type="module" src="sidebar.js"></script>
 </body>

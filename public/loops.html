@@ -9,10 +9,6 @@
     <title>Document</title>
 </head>
 <body>
-    <script>
-        // Initialize Highlight.js
-        hljs.highlightAll();
-    </script>
 
     <div class="sidebar" id="sidebar"></div>
 
@@ -23,11 +19,13 @@
         <p>JavaScript provides various loop methods to work with arrays. Below you will see some of those and examples of how to use them. These are just some of the
             loop methods there are in the JavaScript toolbox.
             <br>
-            Almost all of them have specific functionality except for foreach. There is no build in iteration code and you have to input that yourself.
+            Almost all of them have specific functionality except for forEach. There is no build in iteration code and you have to input that yourself.
             That makes it more prone to error. With other loop methods the intent is explicit due to the naming which makes it eaiser to read.
             By using the other methods you can also chain multiple loop calls together to make them more complex and effective.
             Lastly they create new arrays or values without modifying the original array which promotes immutability and makes
             the code more predictable.
+            <br>
+            That being said there can be valid reasons to use forEach. You just have to consider if it really is the optimal way to do it or if there already is a method that can handle it for you.
         </p>
         <br>
     

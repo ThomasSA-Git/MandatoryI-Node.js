@@ -2,7 +2,7 @@
 import express from "express";
 
 // Instantiate express
-const app = express();  
+const app = express();
 
 // Imports the 'path' module which provides utilities for working with file and directory paths.
 import path from "path";
@@ -22,32 +22,78 @@ const PORT = 8080;
 // Set app to listen to port number
 app.listen(PORT, () => console.log("Server is running on port:", PORT));
 
+// Import functions from module containing the array used for the API.
+import {
+  getMovies,
+  getMovie,
+  addMovie,
+  updateMovie,
+  deleteMovie,
+} from "./movies.js";
 
 // CRUD
 app.get("/", (req, res) => {
-    res.sendFile(path.resolve("public/home.html"));
+  res.sendFile(path.resolve("public/home.html"));
 });
 
-app.get("/", (req, res) => {
-    
+app.get("/movies", (req, res) => {
+  res.send(getMovies());
 });
 
-app.get("/", (req, res) => {
-    
+app.get("/movies/:name", (req, res) => {
+  const movieName = req.params.name;
+  const formattedMovieName = movieName.charAt(0).toUpperCase() + movieName.slice(1).toLowerCase();
+  res.send(getMovie(formattedMovieName));
 });
 
-app.post("/", (req, res) => {
-    
+app.post("/movies", (req, res) => {
+  const newMovie = req.body;
+  if (!newMovie || !newMovie.name || !newMovie.prodYear) {
+    res.send({ error: "Missing mountain data." });
+    return;
+  }
+
+  const addedMovie = addMovie(newMovie);
+
+  if (addedMovie.error) {
+    res.status(404).send({ error: "No movie with that name." });
+  } else {
+    res.send(addedMovie);
+  }
 });
 
-app.patch("/", (req, res) => {
-    
-})
+app.patch("/movies/:name", (req, res) => {
+  const movieName = req.params.name;
+  const formattedMovieName = movieName.charAt(0).toUpperCase() + movieName.slice(1).toLowerCase();
+  const movieToUpdate = req.body;
 
-app.delete("/", (req, res) => {
-    
-})
+  if (!movieToUpdate || !movieToUpdate.name || !movieToUpdate.prodYear) {
+    res.send({ error: "Missing movie data." });
+    return;
+  }
 
+  const updatedMovie = updateMovie(formattedMovieName, movieToUpdate);
+
+  if (updatedMovie.error) {
+    res.status(404).send({ error: "No movie with that name." });
+  } else {
+    res.send(updatedMovie);
+  }
+});
+
+app.delete("/movies/:name", (req, res) => {
+  const movieName = req.params.name;
+  const formattedMovieName = movieName.charAt(0).toUpperCase() + movieName.slice(1).toLowerCase();
+
+  const deletedMovie = deleteMovie(formattedMovieName);
+
+  if (deleteMovie.error) {
+    res.status(404).send({ error: "No movie with that name." });
+  } else {
+    res.send(deleteMovie);
+  }
+
+});
 
 /* fetch explained 
 function getPokemon() {

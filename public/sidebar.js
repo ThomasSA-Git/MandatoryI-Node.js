@@ -4,7 +4,7 @@ sideBar.innerHTML = `
 <ul>
 <li><a href="./home.html">1. Home</a></li>
 <li><a href="./node.html">2. Node.js and express</a></li>
-<li><a href="#">3. REST API</a></li>
+<li><a href="./restAPI.html">3. REST API</a></li>
 <li><a href="./datatypes.html">4. Data types</a></li>
 <li><a href="#">5. Functions</a></li>
 <li><a href="./loops.html">6. Loops</a></li>
@@ -16,7 +16,7 @@ sideBar.innerHTML = `
 <li><a href="#">12. About me</a></li>
 </ul>`;
 
-
+hljs.highlightAll();
 // 1 Short description
 // 2 Short description of what both is, how to install (commands) and how they complement eachother.
 // 3 Show an example of a REST API, explain the conventions (2 of them) when designing an full CRUD API.

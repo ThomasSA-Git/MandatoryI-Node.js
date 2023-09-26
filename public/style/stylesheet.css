@@ -1,4 +1,4 @@
-/* styles.css */
+
 .sidebar {
     position: fixed;
     top: 0;
@@ -32,26 +32,57 @@
     margin-left: 300px;
     margin-right: 150px;
     margin-bottom: 150px;
-    /* Add other styles for the main content area */
+ 
 }
 .pre {
-     border: 2px solid #333; /* Border style: 2px width, solid line, color #333 */ 
+     border: 2px solid #333;
 }
 h1 {
     font-family: Arial, Helvetica, sans-serif;
-    font-size: 24px;       /* Set the font size */
-    margin: 10px 0;        /* Set top and bottom margins */
-    line-height: 1.5;      /* Set the line height (controls line spacing) */
+    font-size: 24px;
+    margin: 10px 0;
+    line-height: 1.5;
+}
+h2 {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 24px;
+    margin: 10px 0;
+    line-height: 1.5;
 }
 
-/* Apply styles to <p> elements */
 p {
     font-family: Arial, Helvetica, sans-serif;
-    font-size: 16px;       /* Set the font size */
-    margin: 10px 0;        /* Set top and bottom margins */
-    line-height: 1.5;      /* Set the line height (controls line spacing) */
+    font-size: 16px; 
+    margin: 10px 0;
+    line-height: 1.5;
 }
 li {
     font-family: Arial, Helvetica, sans-serif;
-    line-height: 1.5;      /* Set the line height (controls line spacing) */
+    line-height: 1.5;
 }
+
+/* Apply styles to the entire table */
+table {
+    border-collapse: collapse;
+    width: 100%;
+    margin-bottom: 20px;
+  }
+  
+  /* Style the table header row */
+  th {
+    background-color: lightgrey;
+    border: 1px solid #ddd;
+    text-align: left;
+    padding: 8px;
+  }
+  
+  /* Style the table data cells */
+  td {
+    border: 1px solid #ddd;
+    padding: 8px;
+  }
+  
+  /* Give the "Movie Name" column more width for long names */
+  td:first-child {
+    width: 70%; /* Adjust as needed */
+  }
