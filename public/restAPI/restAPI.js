@@ -105,11 +105,13 @@ postMovieBtn.addEventListener("click", () => {
   })
     .then((response) => {
       if (!response.ok) {
+        document.getElementById("response-message-post").innerText = "Error";
         throw new Error("Error posting movie");
       }
       return response.json();
     })
     .then((result) => {
+      document.getElementById("response-message-post").innerText = "Post succesful. Check table for result";
       document.getElementById("postName").value = "";
       document.getElementById("postGenre").value = "";
       document.getElementById("postProdYear").value = null;
@@ -118,7 +120,7 @@ postMovieBtn.addEventListener("click", () => {
 });
 
 getPatchMovieBtn.addEventListener("click", () => {
-  document.getElementById("response-message").innerText = "";
+  document.getElementById("response-message-patch").innerText = "";
   getMovie(true);
 });
 
@@ -151,7 +153,7 @@ patchMovieBtn.addEventListener("click", () => {
       return response.json();
     })
     .then((result) => {
-      document.getElementById("response-message").innerText = "Update succesful. Check table for result";
+      document.getElementById("response-message-patch").innerText = "Update succesful. Check table for result";
       document.getElementById("movieId").innerText = undefined;
       document.getElementById("patchName").value = "";
       document.getElementById("patchGenre").value = "";
@@ -160,4 +162,26 @@ patchMovieBtn.addEventListener("click", () => {
     });
 });
 
-function deleteMovie() {}
+const deleteMovieBtn = document.getElementById("deleteMovieBtn");
+
+deleteMovieBtn.addEventListener("click", () => {
+  const name = document.getElementById("deleteMovie").value;
+  fetch(`/movies/${name}`, {
+    method: "DELETE",
+    headers: {
+      "Content-Type": "application/json",
+    }
+  })
+    .then((response) => {
+      if (!response.ok) {
+        document.getElementById("response-message-patch").innerText = "Error";
+        throw new Error("Error deleting movie");
+      }
+      return response.json();
+    })
+    .then((result) => {
+      document.getElementById("response-message-delete").innerText = "Delete succesful. Check table for result";
+      document.getElementById("deleteMovie").value = "";
+      getMovies();
+    });
+})

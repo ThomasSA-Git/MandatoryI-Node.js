@@ -3,9 +3,9 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="assets/css/stylesheet.css" />
+    <link rel="stylesheet" href="../assets/css/stylesheet.css" />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.3.1/highlight.min.js"></script>
-    <title>REST API and express</title>
+    <title>Mandatory I</title>
   </head>
   <body>
     <div class="sidebar" id="sidebar"></div>
@@ -160,7 +160,28 @@
       <p>
         As you can see it use the conventions mentioned earlier and handles
         errors that may occur during or with the correspondance.
+        <br />
+        Below are examples of methods from Express used to build and support the API.
       </p>
+      <pre class="pre">
+        <code class="javascript">
+            // This is a method provided by Express to enable JSON parsing for incoming requests.
+            // It allows your application to handle JSON data in the request body.
+            app.use(express.json());
+
+            // This method serves static files from the "public" directory making them accessible to clients.
+            // It's used to serve things like HTML, CSS, JavaScript files, images and other static assets.
+            // It's an important security measure because it helps prevent unauthorized access to your static files.
+            app.use(express.static("public"));
+
+
+            // This is a method provided by Express to start your server and listen on a specified port.
+            // In this example it sets up the Express application to listen to port 8080.
+            // When a client makes a request to this port the Express server will handle it. 
+            const PORT = 8080;
+            app.listen(PORT);
+        </code>
+      </pre>
 
       <br />
       <h2>Try the CRUD:</h2>
@@ -179,6 +200,7 @@
         <tbody id="table"></tbody>
       </table>
       <br />
+      <hr>
       <p>
         <strong>GET: </strong>Here you can use the input field to fetch from the
         GET /movies/{name} endpoint. It is set up to search by name of the movie
@@ -190,37 +212,60 @@
       <button id="getMovieBtn">Get movie data</button>
       <div id="fetchedMovie"></div>
       <br />
+      <hr>
       <p>
         <strong>POST: </strong>Below you can add a new movie to the list by
-        sending request to POST /movies. Just enter the input fields. When the
-        request has been handled susccesfully, the table containing all movies
-        on the list will be updated.
+        sending request to POST /movies endpoint. Just enter the input fields.
+        When the request has been handled susccesfully, the table containing all
+        movies on the list will be updated.
       </p>
-      <input type="text" id="postName" placeholder="Name of new movie"/>
+      <input type="text" id="postName" placeholder="Name of new movie" />
       <br />
-      <input type="text" id="postGenre" placeholder="Genre of new movie"/>
+      <input type="text" id="postGenre" placeholder="Genre of new movie" />
       <br />
-      <input type="number" id="postProdYear" placeholder="Production year of new movie"/>
+      <input
+        type="number"
+        id="postProdYear"
+        placeholder="Production year of new movie"
+      />
       <br />
       <button id="postMovieBtn">Post new movie</button>
-
+      <p id="response-message-post"></p>
+      <hr>
       <p>
-        <strong>PATCH: </strong>Below you can get an existing movie by the name by typing it in the name field and clicking the "get movie data" button. From there you get all the data on the movie and can change (update) it as you like (except id). After clicking the "Update movie" button you can see the changes in the table further up.
-        It uses the PATCH /movies/{id} endpoint.
+        <strong>PATCH: </strong>Below you can get an existing movie by the name
+        by typing it in the name field and clicking the "get movie data" button.
+        From there you get all the data on the movie and can change (update) it
+        as you like (except id). After clicking the "Update movie" button you
+        can see the changes in the table further up. It uses the PATCH
+        /movies/{id} endpoint.
       </p>
       <strong>Id: </strong>
       <p id="movieId"></p>
-      <input type="text" id="patchName" placeholder="Name of movie"/>
+      <input type="text" id="patchName" placeholder="Name of movie" />
       <button id="getPatchMovieBtn">Get movie data</button>
       <br />
-      <input type="text" id="patchGenre" placeholder="Genre of movie"/>
+      <input type="text" id="patchGenre" placeholder="Genre of movie" />
       <br />
-      <input type="number" id="patchProdYear" placeholder="Production year of movie"/>
+      <input
+        type="number"
+        id="patchProdYear"
+        placeholder="Production year of movie"
+      />
       <br />
       <button id="patchMovieBtn">Update movie</button>
-      <p id="response-message"></p>
+      <p id="response-message-patch"></p>
+      <br />
+      <p>
+        <hr>
+        <strong>DELETE: </strong>Below you can delete movies bu inputting the name of the movie. It uses the endport PATCH /movies/{name}. As before the table updates when the movie is deleted.
+      </p>
+      <input type="text" id="deleteMovie">
+      <br />
+      <button id="deleteMovieBtn">Delete movie</button>
+      <p id="response-message-delete"></p>
     </main>
-    <script src="sidebar.js"></script>
-    <script  src="restAPI.js"></script>
+    <script src="/assets/js/sidebar.js"></script>
+    <script src="restAPI.js"></script>
   </body>
 </html>
