@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <link rel="stylesheet" href="../assets/css/stylesheet.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.3.1/highlight.min.js"></script>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Mandatory I</title>
+  </head>
+  <body>
+    <div class="sidebar" id="sidebar"></div>
+
+    <main class="content">
+      <hr />
+      <h1>Git</h1>
+      <hr />
+      <p>
+        Git is a version control system that helps us manage our project during
+        development. A lot of IDEs have their own VCS but for the project git
+        has been used.
+        <br />
+        Below you will see some examples of some of the commands used with git bash.
+      </p>
+
+      <pre class="pre">
+        <code>
+            // Initializes a new Git repository in the current directory.
+            $ git init
+
+            // Stages all changes in the current directory for the next commit.
+            $ git add .
+
+            // Commits changes made to the repository with a descriptive commit message.
+            $ git commit -m "commit message"
+
+            // Creates a copy of a remote repository on your local machine.
+            $ git clone https://github.com/username/repo.git
+
+            // To add a remote repository and give it a name (in this case "origin"):
+            $ git remote add origin remote_repository_url
+
+            // To update your local references of remote repository
+            $ git fetch
+
+            // Uploads committed changes to a remote repository.
+            $ git push
+
+            // Fetches changes from a remote repository and merges them into the current branch.
+            $ git pull
+
+            // Creates new branch (called feature-branch here)
+            $ git branch feature-branch
+
+            //  Switches to a different branch (feature-branch here)
+            $ git checkout feature-branch
+
+            // Deletes branch
+            $ git branch -d feature-branch
+
+            // How to merge branch
+            // First switch to the target branch (here master is used as example)
+            $ git checkout master
+
+            // Then, merge the feature branch (feature-branch) into master
+            $ git merge feature-branch
+        </code>
+      </pre>
+    </main>
+
+    <script src="/assets/js/sidebar.js"></script>
+  </body>
+</html>

@@ -9,11 +9,10 @@ sideBar.innerHTML = `
 <li><a href="#">5. Functions</a></li>
 <li><a href="/loops/loops.html">6. Loops</a></li>
 <li><a href="/fetch/fetch.html">7. Fetch</a></li>
-<li><a href="#">8. Git</a></li>
-<li><a href="#">9. XSS</a></li>
+<li><a href="/git/git.html">8. Git</a></li>
+<li><a href="/xss/xss.html">9. XSS</a></li>
 <li><a href="#">10. CSS and HTML</a></li>
-<li><a href="#">11. Admin login</a></li>
-<li><a href="#">12. About me</a></li>
+<li><a href="/admin/admin.html">11. Admin login</a></li>
 </ul>`;
 
 hljs.highlightAll();

@@ -62,9 +62,11 @@ p {
     font-size: 16px; 
     margin: 10px 0;
     line-height: 1.5;
+    text-align: justify;
 }
 input[type="text"],
-input[type="number"] {
+input[type="number"],
+input[type="password"] {
   padding: 10px;
   border: 1px solid #ccc;
   border-radius: 5px;

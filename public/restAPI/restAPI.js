@@ -1,11 +1,4 @@
-function escapeHTML(input) {
-  return input
-    .replace(/&/g, "&amp;")
-    .replace(/</g, "&lt;")
-    .replace(/>/g, "&gt;")
-    .replace(/"/g, "&quot;")
-    .replace(/'/g, "&#39;");
-}
+import { escapeHTML } from "../assets/js/escapeHTML.js";
 
 getMovies();
 
@@ -33,7 +26,7 @@ function getMovies() {
 
       tbody.innerHTML = moviesTable;
     });
-}
+};
 
 
 const getMovieBtn = document.getElementById("getMovieBtn");
@@ -82,7 +75,7 @@ function getMovie(patch) {
         document.getElementById("patchProdYear").value = Number(result.prodYear);
       }
     });
-}
+};
 
 const postMovieBtn = document.getElementById("postMovieBtn");
 
@@ -184,4 +177,4 @@ deleteMovieBtn.addEventListener("click", () => {
       document.getElementById("deleteMovie").value = "";
       getMovies();
     });
-})
+});

@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <link rel="stylesheet" href="../assets/css/stylesheet.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.3.1/highlight.min.js"></script>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Mandatory I</title>
+  </head>
+  <body>
+    <div class="sidebar" id="sidebar"></div>
+
+    <main class="content">
+      <hr />
+      <h1>Welcome to my website</h1>
+      <hr />
+      <p>
+        Cross-Site Scripting (XSS) is a security vulnerability that untrusted
+        actors exploit to attack websites. What it essentially involves is the
+        injection of malicious/unintented code often in the form of scripts or
+        HTML into a web application. This code then executes within the context
+        of a user's web browser, allowing the attacker to steal sensitive data,
+        hijack user sessions or manipulate the content and behavior of the
+        website.
+        <br />
+        XSS attacks can occur when a web application doesn't properly validate
+        or sanitize user inputs, enabling attackers to insert their code into
+        web pages viewed by other users. There are different types of XSS
+        attacks each with its own characteristics and potential impact.
+        Preventing XSS vulnerabilities requires careful input validation and
+        output encoding.
+        <br />
+        Below are examples of how I've handled input and output in my project.
+        <br />
+        <br />
+        <strong>Input:</strong> Handles the strings that might contain malicious
+        scripting of the inputs for the POST and PATCH endpoints.
+      </p>
+      <pre class="pre">
+        <code class="javascript">
+          // Function to sanitize input
+          export function sanitizedInput(userInput){
+            return userInput.replace(/[^a-zA-Z0-9\s]/g, '');
+        };
+
+          // Example of my PATCH endpoint where the string inputs are sanitized before being stored in the array of Movies.
+        
+          // Sanitize input
+          sanitizedInput(movieToUpdate.name);
+          sanitizedInput(movieToUpdate.genre);
+          const updatedMovie = updateMovie(movieId, movieToUpdate);
+    
+        </code>
+      </pre>
+      <p>
+        <br />
+        <strong>Output:</strong> Handles strings that might contain malicious
+        scripting with output to the html. Used in fetch to end GET endpoints.
+      </p>
+      <pre class="pre">
+        <code class="javascript">
+          // Function to handle the output
+          export function escapeHTML(input) {
+            return input
+              .replace(/&/g, "&amp;")
+              .replace(/&lt;/g, "&amp;lt;")
+              .replace(/&gt;/g, "&amp;gt;")
+              .replace(/"/g, "&quot;")
+              .replace(/'/g, "&#39;");
+          }
+
+          // Here is where the output is handled. 
+          let movieData = `&lt;p&gt;&lt;strong&gt;Movie name: &lt;/strong&gt;${escapeHTML(
+            result.name
+          )}
+          &lt;br&gt;
+          &lt;strong&gt;Production year: &lt;/strong&gt;${result.prodYear}
+          &lt;/p&gt;`;
+        </code>
+
+      </pre>
+    </main>
+
+    <script src="/assets/js/sidebar.js"></script>
+  </body>
+</html>
