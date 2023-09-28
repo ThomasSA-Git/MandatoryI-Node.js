@@ -74,25 +74,21 @@
       <p>
         Here the different endpoints all refer to a collection server side.
         Because it is a collection it is assumed that there are multiple objects
-        it movie in plural. When referencing a specific object an id, name or
-        some other unique property of the object is needed to find and identify
-        it so that it can be handled properly according to specific endpoint
-        that is called.
+        in movie and therefore its plural. When referencing a specific object in 
+        the collection an id, name or some other unique property of the object is 
+        needed to find and identify it so that it can be handled properly according 
+        to specific endpoint that is called.
       </p>
       <br />
       <h2>Express</h2>
       <p>
         Express.js is a web application framework with Node.js in the
-        development of web applications and APIs. In the project I use for:
+        development of web applications and APIs. In the project I use it for:
       </p>
       <ul>
         <li>
           Routing: Easy definition of routes for handling different HTTP
           requests.
-        </li>
-        <li>
-          Middleware: Integration of middleware functions for tasks like data
-          parsing and authentication.
         </li>
         <li>
           Port Handling: Management of server ports for listening to incoming
@@ -184,7 +180,7 @@
       </pre>
 
       <br />
-      <h2>Try the CRUD:</h2>
+      <h2>Demonstration of the API:</h2>
       <p>
         Below is a table using the GET /movies endpoint. The list (array) with
         movies is fetched and put into a table.
@@ -229,7 +225,7 @@
         placeholder="Production year of new movie"
       />
       <br />
-      <button id="postMovieBtn">Post new movie</button>
+      <button id="postMovieBtn" style="background-color: green;">Post new movie</button>
       <p id="response-message-post"></p>
       <hr>
       <p>
@@ -253,16 +249,18 @@
         placeholder="Production year of movie"
       />
       <br />
-      <button id="patchMovieBtn">Update movie</button>
+      <button id="patchMovieBtn" style="background-color: green;">Update movie</button>
       <p id="response-message-patch"></p>
       <br />
       <p>
         <hr>
-        <strong>DELETE: </strong>Below you can delete movies bu inputting the name of the movie. It uses the endport PATCH /movies/{name}. As before the table updates when the movie is deleted.
+        <strong>DELETE: </strong>Below you can delete movies bu inputting the name 
+        of the movie.It uses the endport PATCH /movies/{name}. As before the table 
+        updates when the movie is deleted.
       </p>
       <input type="text" id="deleteMovie">
       <br />
-      <button id="deleteMovieBtn">Delete movie</button>
+      <button id="deleteMovieBtn" style="background-color: red;">Delete movie</button>
       <p id="response-message-delete"></p>
     </main>
     <script src="/assets/js/sidebar.js"></script>

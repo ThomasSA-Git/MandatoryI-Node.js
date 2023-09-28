@@ -1,6 +1,6 @@
 const loginBtn = document.getElementById("loginBtn");
-loginBtn.addEventListener("click", () => {
-
+loginBtn.addEventListener("click", (evt) => {
+    evt.preventDefault();
     const userName = document.getElementById("userName").value;
     const password = document.getElementById("password").value;
     
@@ -19,11 +19,13 @@ loginBtn.addEventListener("click", () => {
         if (!response.ok) {
           throw new Error("Error");
         }
-        console.log(response.json);
         return response.json();
       })
       .then((result) => {
-        window.location.href = "/admin/adminpage";
+      
+          // Redirect to the URL provided in the JSON response
+          window.location.href = result.redirect;
+     
       })
       .catch((error) => {
         console.error("An error occurred:", error);

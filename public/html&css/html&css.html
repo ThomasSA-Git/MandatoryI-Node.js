@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <link rel="stylesheet" href="../assets/css/stylesheet.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.3.1/highlight.min.js"></script>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Mandatory I</title>
+  </head>
+  <body>
+    <div class="sidebar" id="sidebar"></div>
+
+    <main class="content">
+      <hr />
+      <h1>HTML and CSS</h1>
+      <hr />
+      <p>
+        This is simply a walkthrough of some few rules of thumb for HTML and
+        CSS.
+      </p>
+      <br />
+      <br />
+      <h2>Styling</h2>
+      <p>In HTML, there are three methods for managing styling:</p>
+      <ul>
+        <li>
+          <strong>Inline styles:</strong> Styling is applied to a specific
+          element. Can be set with style.
+          <ul>
+            <li>Best suited for small projects.</li>
+            <li>No reusability</li>
+            <li>
+              Specificity: Can override styles defined in external stylesheet
+              which can be both a pro and a con.
+            </li>
+          </ul>
+        </li>
+        <li>
+          <strong>Styles defined within the HTML file: </strong> Styling is
+          defined at the top of the HTML document with the style element ul.
+          <ul>
+            <li>
+              Best used for specific styling in one HTML document because it
+              can't be shared between different documents.
+            </li>
+            <li>Best suited for smaller projects.</li>
+            <li>
+              Can override external linked stylesheets but be overridden by
+              inline styling.
+            </li>
+          </ul>
+        </li>
+        <li>
+          <strong>External styles linked via link: </strong>Styling is done in a
+          separate CSS-file and the HTML document used the link element to
+          access it.
+          <ul>
+            <li>
+              High reusability because it can easily be accessed by multiple
+              HTML documents.
+            </li>
+            <li>Easy refactoring.</li>
+            <li>Helps keep cleaner code and better organization of project.</li>
+            <li>
+              External stylesheets are cached by web browsers which can improve
+              page loading times for returning visitors. Browsers only need to
+              download the stylesheet once and can reuse it for subsequent
+              pages.
+            </li>
+          </ul>
+        </li>
+      </ul>
+
+      <h2>Circular dependency</h2>
+      <p>
+        When using scripts in HTML you should be aware of problems that might
+        occur with circular dependency. Circular dependency occurs when two
+        JavaScript files depend on each other's functionality, creating issues
+        with code maintainability and execution.
+        <br />
+        This can be avoided by refactoring code to break the circular dependency
+        by combining, modularizing or using event-based communication between
+        scripts. Make sure to list the scripts in correct order in the HTML
+        document.
+      </p>
+    </main>
+
+    <script src="/assets/js/sidebar.js"></script>
+  </body>
+</html>

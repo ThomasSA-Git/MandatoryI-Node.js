@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <link rel="stylesheet" href="../assets/css/stylesheet.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.3.1/highlight.min.js"></script>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Mandatory I</title>
+  </head>
+  <body>
+    <div class="sidebar" id="sidebar"></div>
+
+    <main class="content">
+      <hr />
+      <h1>Functions</h1>
+      <hr />
+      <p>
+        A JavaScript function is a reusable block of code that performs a
+        specific task(s). Functions can take inputs (parameters) and can return
+        a result. They are essential for organizing and reusing code in
+        JavaScript.
+        <br />
+        There are several different types of functions and ways to write them.
+        Below are a few examples of them.
+      </p>
+      <br />
+      <p>
+        <strong>Regular function: </strong>A regular function is defined using
+        the function keyword. It has a function name and can be called using
+        that name.
+      </p>
+      <pre class="pre">
+            <code class="javascript">
+                function regularFunction(param) {
+                    return param * 2;
+                }                
+            </code>
+        </pre>
+      <br />
+      <p>
+        <strong>Arrow function: </strong> Arrow functions have shorter syntax
+        for writing functions. They are commonly used for simple, one-liner
+        functions.
+      </p>
+      <pre class="pre">
+            <code class="javascript">
+                // Arrow function with return.
+                const arrowFunctionWithReturn = (param) => {
+                    return param * 2;
+                };
+                
+                // Arrow function with one-line return.
+                const arrowFunction = (param) => param * 2;
+
+            </code>
+        </pre>
+      <br />
+      <p>
+        <strong>Anonymous function: </strong> Anonymous functions do not have a
+        name and are often used as callbacks or assigned to variables. They can
+        be defined using the function keyword without a name. They are often
+        used in eventlisteners.
+      </p>
+      <pre class="pre">
+            <code class="javascript">
+                const anonymousFunction = function(param) {
+                    return param * 2;
+                };
+            </code>
+        </pre>
+      <br />
+      <p>
+        <strong>Callback function: </strong> Callback functions are functions
+        passed as arguments to other functions to be executed at a later time or
+        under specific conditions. They are commonly used for asynchronous
+        operations or event handling.
+      </p>
+      <pre class="pre">
+            <code class="javascript">
+                // A callback function called doubleValue that doubles a given value.
+                function doubleValue(param) {
+                    return param * 2;
+                }
+
+                // The performOperation function that takes a value and a callback.
+                function performOperation(value, callback) {
+                // Inside performOperation the callback function can be called with the value as its argument.
+                const result = callback(value);
+
+                return result;
+                }
+
+                // Call performOperation with the value 5 and the doubleValue callback.
+                const result = performOperation(5, doubleValue);
+            </code>
+        </pre>
+
+      <pre class="pre">
+            <code class="javascript">
+
+            </code>
+        </pre>
+
+      <pre class="pre">
+            <code class="javascript">
+
+            </code>
+        </pre>
+    </main>
+
+    <script src="/assets/js/sidebar.js"></script>
+  </body>
+</html>

@@ -4,35 +4,6 @@ body {
   flex-direction: column;
 }
 
-.sidebar {
-    position: fixed;
-    top: 0;
-    left: 0;
-    bottom: 0;
-    width: 250px;
-    background-color: #333;
-    color: #fff;
-    overflow-y: auto;
-}
-
-.sidebar ul {
-    list-style-type: none;
-    padding: 0;
-}
-
-.sidebar ul li {
-    padding: 10px;
-}
-
-.sidebar ul li a {
-    text-decoration: none;
-    color: #fff;
-}
-
-.sidebar ul li a:hover {
-    background-color: #555;
-}
-
 main {
   flex: 1;
     margin-left: 300px;
@@ -44,17 +15,46 @@ main {
      border: 2px solid #333;
      background-color: whitesmoke;
 }
+
+/* Styling for elements with text below */
+
 h1 {
     font-family: Arial, Helvetica, sans-serif;
     font-size: 24px;
     margin: 10px 0;
     line-height: 1.5;
 }
+
 h2 {
     font-family: Arial, Helvetica, sans-serif;
     font-size: 24px;
     margin: 10px 0;
     line-height: 1.5;
+}
+
+.heading {
+  margin: 0; /* Remove any default margins on the h3 element */
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 24px;
+  margin: 10px 0;
+  line-height: 1.5;
+  text-align: center;
+  background-color: transparent;
+  transition: background-color 0.3s ease;
+}
+
+.h3 {
+  text-decoration: none;
+  color: white;
+  transition: color 0.3s ease; /* Smooth text color transition */
+}
+
+.heading:hover {
+  background-color: #345478;
+}
+
+.h3:hover {
+  color: lightgray;
 }
 
 p {
@@ -64,6 +64,31 @@ p {
     line-height: 1.5;
     text-align: justify;
 }
+
+li {
+  font-family: Arial, Helvetica, sans-serif;
+  line-height: 1.5;
+}
+
+.columns {
+  display: flex;
+}
+
+/* Comlumns for home.html */
+
+.column {
+  flex: 1;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+.column img {
+  max-width: 100%;
+  height: auto;
+}
+
+/* Styling for input and btn */
+
 input[type="text"],
 input[type="number"],
 input[type="password"] {
@@ -77,10 +102,9 @@ input[type="password"] {
 
 button {
   padding: 10px 20px;
-  background-color: darkgray;
+  background-color: darkblue;
   color: #fff;
   border: none;
-/*   border-radius: 5px; */
   font-size: 10px;
   cursor: pointer;
   transition: background-color 0.3s;
@@ -90,19 +114,14 @@ button:hover {
   background-color: lightgrey;
 }
 
-li {
-    font-family: Arial, Helvetica, sans-serif;
-    line-height: 1.5;
-}
+/* Table styling below */
 
-/* Apply styles to the entire table */
 table {
     border-collapse: collapse;
     width: 100%;
     margin-bottom: 20px;
   }
   
-  /* Style the table header row */
   th {
     background-color: lightgrey;
     border: 1px solid #ddd;
@@ -110,13 +129,58 @@ table {
     padding: 8px;
   }
   
-  /* Style the table data cells */
   td {
     border: 1px solid #ddd;
     padding: 8px;
   }
   
-  /* Give the "Movie Name" column more width for long names */
+  
   td:first-child {
-    width: 70%; /* Adjust as needed */
+    width: 70%; /* For the movietable column to make it wider sothat it can fit the whole name */
   }
+
+
+/* Sidebar styling */ 
+.sidebar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  width: 250px;
+  background-color: #1e3a58;
+  color: #fff;
+  overflow-y: auto;
+  transition: background-color 0.3s ease; /* Smooth background color transition */
+}
+
+/* Reset the margin and padding for ul and li elements */
+.sidebar ul,
+.sidebar ul li {
+  margin: 0;
+  padding: 0;
+}
+
+/* Style the list items as buttons */
+.sidebar ul li {
+  padding: 10px;
+  transition: background-color 0.3s ease; /* Smooth button color transition */
+  font-size: 12px;
+}
+
+/* Style the anchor links */
+.sidebar ul li a {
+  text-decoration: none;
+  color: #fff;
+  display: block; /* Make the entire list item clickable */
+  padding: 10px 15px; /* Padding inside the button-like links */
+}
+
+/* Change button color on hover */
+.sidebar ul li:hover {
+  background-color: #345478;
+}
+
+/* Change text color on hover */
+.sidebar ul li a:hover {
+  color: lightgray;
+}

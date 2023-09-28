@@ -131,14 +131,13 @@ const password = "password";
 
 app.post("/login", (req, res) => {
   const loginData = req.body;
-  console.log(loginData.userName, userName);
-  console.log(loginData.password, password);
+ 
   if (loginData.userName === userName && loginData.password === password) {
-    // return res.redirct("/admin/adminpage")
-    // remove else
-    res.send("Login successful");
-  } else {
-    console.log("failure");
-    res.send("Username or password isn't correctly typed.");
+    console.log(loginData.userName, userName);
+    console.log(loginData.password, password);
+    
+    res.send({ redirect: "/admin/adminpage.html" });
   }
+
+  // Still needs to handle if login isn't successful.
 });

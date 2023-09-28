@@ -22,22 +22,22 @@
       <p>
         In JavaScript the type of variable is defined by the value it holds
         unlike other programming languages that has them explicitly declared
-        (String, int, boolean etc.). Instead they are declared with const, let
-        and var.
+        (String, int, boolean and so on). Instead they are declared with const,
+        let and var.
       </p>
 
       <ul>
         <li>
           const (immutable): const is used for variables whose values should not
-          change after initialization. It is often used for values that
-          represent constants or unchanging data.
+          change after initialization. It is used for values that represent
+          constants or unchanging data.
           <br />
-          Example: const pi = 3.14159;
+          Example: const pi = 3.14;
         </li>
         <li>
-          let (Mutable): let is used for variables whose values can be changed
-          or reassigned. It is the preferred choice when a variable's value may
-          change during the program's execution.
+          let (Mutable): let is used for variables whose values can be changed.
+          It is the preferred choice when a variables value may change during
+          while running the program.
           <br />
           Example: let counter = 0;
         </li>
@@ -51,7 +51,7 @@
       </ul>
 
       <p>
-        As a rule you should never use var due to it's unpredictable behaviour.
+        As a rule you should never use var due to its unpredictable behaviour.
         Instead you should use const when possible and let when it is necessary
         to change the value of a variable during execution of the program.
       </p>
@@ -68,8 +68,49 @@
                 const message = "Hello, World!";
             </code>
         </pre>
-
       <p>
+        There are several methods for handling strings in JavaScript. Below is a
+        list of some:
+      </p>
+      <ul>
+        <li><strong>length():</strong> Returns the length of the string.</li>
+        <li>
+          <strong>charAt():</strong> Returns the character at the specified
+          index.
+        </li>
+        <li>
+          <strong>concat():</strong> Combines two or more strings and returns a
+          new string.
+        </li>
+        <li>
+          <strong>indexOf():</strong> Returns the index of the first occurrence
+          of a substring in the string.
+        </li>
+        <li>
+          <strong>substring():</strong> Extracts a portion of the string between
+          the specified start and end indexes.
+        </li>
+        <li>
+          <strong>toUpperCase():</strong> Converts the string to uppercase.
+        </li>
+        <li>
+          <strong>toLowerCase():</strong> Converts the string to lowercase.
+        </li>
+        <li>
+          <strong>trim():</strong> Removes whitespace from the beginning and end
+          of the string.
+        </li>
+        <li>
+          <strong>replace():</strong> Replaces occurrences of a substring with
+          another substring.
+        </li>
+        <li>
+          <strong>split():</strong> Splits the string into an array of
+          substrings based on a specified separator like ",", " " and so on.
+        </li>
+      </ul>
+      <p>
+        <br />
         <strong>2. Number:</strong> Represents numeric values, fx int or float
         numbers.
       </p>
@@ -78,7 +119,39 @@
                 const num = 42;
             </code>
         </pre>
-
+      <p>
+        As with strings, numbers has several methods too. Below is a list of
+        some:
+      </p>
+      <ul>
+        <li>
+          <strong>toFixed():</strong> Formats a number to a specified number of
+          decimal places.
+        </li>
+        <li><strong>toString():</strong> Converts a number to a string.</li>
+        <li>
+          <strong>parseInt():</strong> Parses a string and returns an integer.
+        </li>
+        <li>
+          <strong>parseFloat():</strong> Parses a string and returns a
+          floating-point number.
+        </li>
+        <li>
+          <strong>isNaN():</strong> Checks if a value is NaN (Not-a-Number).
+        </li>
+        <li>
+          <strong>Math.round():</strong> Rounds a number to the nearest integer.
+        </li>
+        <li>
+          <strong>Math.floor():</strong> Rounds a number down to the nearest
+          integer.
+        </li>
+        <li>
+          <strong>Math.ceil():</strong> Rounds a number up to the nearest
+          integer.
+        </li>
+      </ul>
+      <br />
       <p><strong>3. Boolean:</strong> Represents true or false values.</p>
       <pre class="pre">
             <code class="javascript">
@@ -139,11 +212,11 @@
       </p>
       <pre class="pre">
         <code class="javascript">
-const person = {
-    name: 'Thomas',
-    age: 39,
-    isStudent: true
-};
+            const person = {
+                name: 'Thomas',
+                age: 39,
+                isStudent: true
+            };
         </code>
     </pre>
 
@@ -154,18 +227,18 @@ const person = {
       </p>
       <pre class="pre">
         <code class="javascript">
-const colors = ['red', 'green', 'blue'];
+            const colors = ['red', 'green', 'blue'];
         </code>
     </pre>
 
       <p>
         <strong>3. Dates:</strong> Dates in JavaScript represent date and time
-        information. They are useful for working with timestamps and managing
-        calendar-related operations.
+        information. They are useful for working with timestamps, clocks, countdowns and managing
+        calendar projects.
       </p>
       <pre class="pre">
         <code class="javascript">
-const currentDate = new Date();
+        const currentDate = new Date();
         </code>
     </pre>
     </main>
