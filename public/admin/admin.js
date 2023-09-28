@@ -1,4 +1,8 @@
+
+
 const loginBtn = document.getElementById("loginBtn");
+
+// Eventlistener for login button
 loginBtn.addEventListener("click", (evt) => {
     evt.preventDefault();
     const userName = document.getElementById("userName").value;
@@ -23,7 +27,7 @@ loginBtn.addEventListener("click", (evt) => {
       })
       .then((result) => {
       
-          // Redirect to the URL provided in the JSON response
+          // redirects with the url (string) provided in the response.
           window.location.href = result.redirect;
      
       })

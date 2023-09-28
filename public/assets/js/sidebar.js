@@ -1,4 +1,8 @@
+
+// Highlight code examples.
 hljs.highlightAll();
+
+// temporary sidebar nav
 
 const sideBar = document.getElementById("sidebar");
 

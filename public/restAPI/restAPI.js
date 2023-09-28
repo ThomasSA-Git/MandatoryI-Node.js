@@ -1,5 +1,7 @@
 import { escapeHTML } from "../assets/js/escapeHTML.js";
 
+
+// Gets movies for the table
 getMovies();
 
 function getMovies() {
@@ -28,11 +30,14 @@ function getMovies() {
     });
 };
 
-
+// Get specific movie when searched for
 const getMovieBtn = document.getElementById("getMovieBtn");
 
+
+// Gets movie for patch input fields
 const getPatchMovieBtn = document.getElementById("getPatchMovieBtn");
 
+// Eventlistener for get movie. Added patch boolean parameter to check if the movie search is for patch or not.
 getMovieBtn.addEventListener("click", () => {
   getMovie(false);
 });
@@ -77,6 +82,8 @@ function getMovie(patch) {
     });
 };
 
+
+// Post movie
 const postMovieBtn = document.getElementById("postMovieBtn");
 
 postMovieBtn.addEventListener("click", () => {
@@ -112,6 +119,8 @@ postMovieBtn.addEventListener("click", () => {
     });
 });
 
+
+// Patch movie. Input in fields in html if you want to search or input manually.
 getPatchMovieBtn.addEventListener("click", () => {
   document.getElementById("response-message-patch").innerText = "";
   getMovie(true);
@@ -154,6 +163,8 @@ patchMovieBtn.addEventListener("click", () => {
       getMovies();
     });
 });
+
+// Delete movie
 
 const deleteMovieBtn = document.getElementById("deleteMovieBtn");
 
