@@ -14,7 +14,10 @@
         Here's a short break down of SSR:
     </p>
     <ul>
-        <li>The server generates the HTML content for a web page.</li>
+        <li>
+            The server generates the HTML content for a web page.
+            Only generates once and thats when server is started.
+        </li>
         <li>The fully rendered HTML is sent to the client.</li>
         <li>The browser can directly render the page based on the received HTML.</li>
     </ul>
@@ -41,7 +44,60 @@
             a more efficient crawling process.
         </li>
     </ul>
-  </main>
+    <br />
+    <p>Below I will show step by step how I've used it for the home page for this website.</p>
+    <pre class="pre">
+        <code class="javascript">
 
+            // Below is the templateEngine.
+            import fs from "fs";
+
+            export function pageToString(filePath) {
+                return fs.readFileSync(filePath).toString();
+            }
+
+            export function renderPage(page) {
+                const navbar = fs.readFileSync("./public/components/navbar/navbar.html").toString();
+
+                return navbar + page;
+            }
+        </code>
+    </pre>
+    <p>
+        The functions above are in a module serving as a template engine, and 
+        handling the rendering of the page.
+        It pieces it together with the parts needed to make the requested page.
+        In my project it simply adds the navbar to the base HTML of the page.
+        This is just an example, but more parts could be added, such as a footer.
+        <br />
+        Doing it this way makes it easier to reuse and refactor parts of the page
+        that is needed on several pages.
+        <br />
+        File system (fs) is imported. It is needed to use readFileSync which reads
+        the files synchronously as opposed to readFile which is asynchronous. Doing
+        it synchronously is preferred while rendering.
+        <br />
+    </p>
+    <pre class="pre">
+        <code class="javascript">
+
+            // Turning html file to string with function from previous example.
+            const home = pageToString('./public/pages/home/home.html');
+
+            // Exporting the rendered page.
+            export const homePage = renderPage(home);
+
+            // Endpoint for routing to the home page.
+            app.get("/", (req, res) => {
+                res.send(homePage);
+              });
+        </code>
+    </pre>
+    <p>Above the rest of the process is showed. Now the page will show with 
+        the intended content including navbar when routing to it with "/".</p>
+
+  
+  </main>
+  <script src="../../assets/js/hightLight.js"></script>
 </body>
 </html>

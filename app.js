@@ -4,8 +4,8 @@ import express from "express";
 // Instantiate express
 const app = express();
 
-// Imports the 'path' module which provides utilities for working with file and directory paths.
-import path from "path";
+// Imports the 'path' module which provides utilities for working with file and directory paths. Not needed anymore.
+//import path from "path";
 
 // Enables JSON parsing for incoming requests,
 // allowing the application to handle JSON data in the request body.
@@ -25,14 +25,7 @@ app.use(express.static("public"));
 const PORT = Number(process.env.PORT) || 8080;
 app.listen(PORT, () => console.log("Server is running on port:", PORT));
 
-// Import functions from module containing the array used for the API.
-import {
-  getMovies,
-  getMovie,
-  addMovie,
-  updateMovie,
-  deleteMovie,
-} from "./movies.js";
+
 
 import {
   homePage,
@@ -50,7 +43,8 @@ import {
   adminDummyPage
 } from "./util/prepPage.js";
 
-import { sanitizedInput } from "./util/sanitize.js";
+
+// Endpoints for routing
 
 app.get("/", (req, res) => {
   res.send(homePage);
@@ -104,7 +98,17 @@ app.get("/adminDummy", (req, res) => {
   res.send(adminDummyPage);
 });
 
+// Import functions from module containing the array used for the API CRUD.
+import {
+  getMovies,
+  getMovie,
+  addMovie,
+  updateMovie,
+  deleteMovie,
+} from "./movies.js";
 
+// Used to santize outputs in the API CRUD
+import { sanitizedInput } from "./util/sanitize.js";
 
 // CRUD
 app.get("/movies", (req, res) => {
