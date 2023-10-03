@@ -1,4 +1,4 @@
-import { escapeHTML } from "../assets/js/escapeHTML.js";
+import { escapeHTML } from "../../assets/js/escapeHTML.js";
 
 
 // Gets movies for the table

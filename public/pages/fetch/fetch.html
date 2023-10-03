@@ -1,19 +1,3 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <link rel="stylesheet" href="../assets/css/stylesheet.css" />
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.3.1/styles/default.min.css"
-    />
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.3.1/highlight.min.js"></script>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Mandatory I</title>
-  </head>
-  <body>
-    <div class="sidebar" id="sidebar"></div>
-
     <main class="content">
       <hr />
       <h1>Fetch</h1>
@@ -69,18 +53,65 @@
             </code>
         </pre>
       <p>
+        Depending on what kind of request you're sending the fetch might need a
+        path varialbe or a set the method specifically and set the header to
+        specify the format of the content of the request (if any). If data needs
+        to be sent with the request (needed for POST and PATCH) it needs to be
+        added to the body.
+        <br />
+        Below you can see an example of both a GET with pathvariable and POST
+        request from my project. Method and header is set as decribed above, and
+        body is also added to be sent with the POST request. To keep the
+        snippets short some of the code that is irrelevant for the example has
+        been removed.
+      </p>
+      <pre class="pre">
+        <code class="javascript">
+
+          // GET request with added pathvariable from project.
+          fetch(`/movies/${getMovieName}`)
+          .then((response) => {
+              if (!response.ok) {
+                  throw new Error("Error getting movie");
+          }
+                  return response.json();
+          })
+          .then((result) => {
+
+          });
+
+          // POST request from project.
+          fetch(`/movies`, {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify(movieData),
+          })
+            .then((response) => {
+              if (!response.ok) {
+                throw new Error("Error posting movie");
+              }
+              return response.json();
+            })
+            .then((result) => {
+         
+            });
+        </code>
+      </pre>
+      <p>
         You can use async/await with the fetch function to make asynchronous
         requests in a more synchronous and readable manner. Using async/await
         makes your code appear more sequential and easier to read. Using
-        async/await doesn't change the behavior of the fetch request.
-        It still performs the request asynchronously. It just simplifies the
-        code structure and makes it look more like synchronous code which can
-        be easier to read and maintain.
+        async/await doesn't change the behavior of the fetch request. It still
+        performs the request asynchronously. It just simplifies the code
+        structure and makes it look more like synchronous code which can be
+        easier to read and maintain.
         <br />
         Since we haven't discussed this in class I won't be going to much into
         detail with this with examples.
       </p>
     </main>
-    <script src="/assets/js/sidebar.js"></script>
+    <script src="../../assets/js/hightLight.js"></script>
   </body>
 </html>

@@ -31,13 +31,79 @@ import {
   deleteMovie,
 } from "./movies.js";
 
+import {
+  homePage,
+  dataTypesPage,
+  functionsPage,
+  loopsPage,
+  nodePage,
+  restApiPage,
+  fetchPage,
+  gitPage,
+  xssPage,
+  htmlCssPage,
+  ssrPage,
+  adminPage,
+  adminDummyPage
+} from "./util/prepPage.js";
+
 import { sanitizedInput } from "./util/sanitize.js";
 
-// CRUD
 app.get("/", (req, res) => {
-  res.sendFile(path.resolve("public/home/home.html"));
+  res.send(homePage);
 });
 
+app.get("/datatypes", (req, res) => {
+  res.send(dataTypesPage);
+});
+
+app.get("/functions", (req, res) => {
+  res.send(functionsPage);
+});
+
+app.get("/loops", (req, res) => {
+  res.send(loopsPage);
+});
+
+app.get("/node", (req, res) => {
+  res.send(nodePage);
+});
+
+app.get("/restAPI", (req, res) => {
+  res.send(restApiPage);
+});
+
+app.get("/fetch", (req, res) => {
+  res.send(fetchPage);
+});
+
+app.get("/git", (req, res) => {
+  res.send(gitPage);
+});
+
+app.get("/xss", (req, res) => {
+  res.send(xssPage);
+});
+
+app.get("/htmlcss", (req, res) => {
+  res.send(htmlCssPage);
+});
+
+app.get("/ssr", (req, res) => {
+  res.send(ssrPage);
+});
+
+app.get("/admin", (req, res) => {
+  res.send(adminPage);
+});
+
+app.get("/adminDummy", (req, res) => {
+  res.send(adminDummyPage);
+});
+
+
+
+// CRUD
 app.get("/movies", (req, res) => {
   res.send(getMovies());
 });
@@ -93,7 +159,7 @@ app.patch("/movies/:id", (req, res) => {
   movieToUpdate.name =
     movieToUpdate.name.charAt(0).toUpperCase() +
     movieToUpdate.name.slice(1).toLowerCase();
-    
+
   movieToUpdate.genre =
     movieToUpdate.genre.charAt(0).toUpperCase() +
     movieToUpdate.genre.slice(1).toLowerCase();
@@ -131,12 +197,9 @@ const password = "password";
 
 app.post("/login", (req, res) => {
   const loginData = req.body;
- 
+
   if (loginData.userName === userName && loginData.password === password) {
-    console.log(loginData.userName, userName);
-    console.log(loginData.password, password);
-    
-    res.send({ redirect: "/admin/adminpage.html" });
+    res.send({ redirect: "/adminDummy" });
   }
 
   // Still needs to handle if login isn't successful.
