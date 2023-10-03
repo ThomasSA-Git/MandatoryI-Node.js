@@ -105,7 +105,7 @@ import {
   addMovie,
   updateMovie,
   deleteMovie,
-} from "./movies.js";
+} from "./movies/movies.js";
 
 // Used to santize outputs in the API CRUD
 import { sanitizedInput } from "./util/sanitize.js";
