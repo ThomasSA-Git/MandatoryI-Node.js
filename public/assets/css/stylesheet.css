@@ -32,31 +32,6 @@ h2 {
     line-height: 1.5;
 }
 
-.heading {
-  margin: 0; /* Remove any default margins on the h3 element */
-  font-family: Arial, Helvetica, sans-serif;
-  font-size: 24px;
-  margin: 10px 0;
-  line-height: 1.5;
-  text-align: center;
-  background-color: transparent;
-  transition: background-color 0.3s ease;
-}
-
-.h3 {
-  text-decoration: none;
-  color: white;
-  transition: color 0.3s ease; /* Smooth text color transition */
-}
-
-.heading:hover {
-  background-color: #345478;
-}
-
-.h3:hover {
-  color: lightgray;
-}
-
 p {
     font-family: Arial, Helvetica, sans-serif;
     font-size: 16px; 
@@ -74,7 +49,7 @@ li {
   display: flex;
 }
 
-/* Comlumns for home.html */
+/* Comlumns for home and admindummy */
 
 .column {
   flex: 1;
@@ -153,14 +128,13 @@ table {
   transition: background-color 0.3s ease; /* Smooth background color transition */
 }
 
-/* Reset the margin and padding for ul and li elements */
 .sidebar ul,
 .sidebar ul li {
   margin: 0;
   padding: 0;
 }
 
-/* Style the list items as buttons */
+/* Styles the list items as buttons */
 .sidebar ul li {
   padding: 10px;
   transition: background-color 0.3s ease; /* Smooth button color transition */
@@ -182,5 +156,31 @@ table {
 
 /* Change text color on hover */
 .sidebar ul li a:hover {
+  color: lightgray;
+}
+
+/* Used for the header of the navbar */
+.heading {
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 24px;
+  margin: 10px 0;
+  line-height: 1.5;
+  text-align: center;
+  background-color: transparent;
+  transition: background-color 0.3s ease;
+}
+
+.h3 {
+  text-decoration: none;
+  color: white;
+  transition: color 0.3s ease; /* Smooth text color transition */
+}
+
+.heading:hover {
+  background-color: #345478;
+}
+
+.h3:hover {
   color: lightgray;
 }

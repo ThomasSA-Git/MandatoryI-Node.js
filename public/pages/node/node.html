@@ -9,7 +9,7 @@
         <br />
         As with other package managers such as maven or graddle, npm handles
         dependencies. An important part of Node.js projects is the package.json
-        file. It contains metadata about the project and its dependecies.
+        file. It contains metadata, dependencies and scripts.
         <br />
         Below is a simple example of this with express listed as a dependency.
         The needed libaries can be installed easily using npm in the terminal.
@@ -86,7 +86,9 @@
                     "main": "app.js",
                     "devDependencies": {},
                     "scripts": {
-                      "test": "echo \"Error: no test specified\" && exit 1"
+                      "test": "echo \"Error: no test specified\" && exit 1",
+                      "start:dev": "cross-env PORT=8080 nodemon app.js",
+                      "start:prod": "cross-env PORT=80 node app.js"
                     },
                     "repository": {
                       "type": "git",
@@ -124,6 +126,9 @@
         CommonJS is often used serverside whereas Modules is used both server
         and clientside. Using modules can help make the code better organized
         and more efficient.
+        <br />
+        The script above is used to set enviromental variables for PORT number.
+        It changes wether the project is in dev or prod state.
       </p>
 
       <pre class="pre">
