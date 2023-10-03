@@ -9,9 +9,7 @@
   "version": "0.0.1",
   "main": "app.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start:dev": "cross-env PORT=8080 nodemon app.js",
-    "start:prod": "cross-env PORT=80 node app.js"
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",
