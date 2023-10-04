@@ -17,13 +17,12 @@ app.use(express.json());
 app.use(express.static("public"));
 
 // Set port number
-const PORT = 8080;
+//const PORT = 8080;
+
+const PORT = Number(process.env.PORT) || 8080;
 
 // Set app to listen to port number
 app.listen(PORT, () => console.log("Server is running on port:", PORT));
-
-/* const PORT = Number(process.env.PORT) || 8080;
-app.listen(PORT, () => console.log("Server is running on port:", PORT)); */
 
 
 // Import rendered pages.
