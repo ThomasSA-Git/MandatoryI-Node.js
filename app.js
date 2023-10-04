@@ -1,4 +1,4 @@
-// Import express. If type is not set to "module" in package.json it is set with require("express")
+// Import express. If type is not set to "module" in package.json it is set with require ("express")
 import express from "express";
 
 // Instantiate express
@@ -26,7 +26,7 @@ app.listen(PORT, () => console.log("Server is running on port:", PORT));
 app.listen(PORT, () => console.log("Server is running on port:", PORT)); */
 
 
-
+// Import rendered pages.
 import {
   homePage,
   dataTypesPage,

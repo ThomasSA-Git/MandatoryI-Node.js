@@ -26,12 +26,5 @@
   "bugs": {
     "url": "https://github.com/ThomasSA-Git/MandatoryI-Node.js/issues"
   },
-  "homepage": "https://github.com/ThomasSA-Git/MandatoryI-Node.js#readme",
-  "vercel": {
-    "functions": {
-      "api/**/*.js": {
-        "runtime": "node@14"
-      }
-    }
-  }
+  "homepage": "https://github.com/ThomasSA-Git/MandatoryI-Node.js#readme"
 }
