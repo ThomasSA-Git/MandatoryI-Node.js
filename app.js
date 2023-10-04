@@ -24,7 +24,6 @@ const PORT = Number(process.env.PORT) || 8080;
 // Set app to listen to port number
 app.listen(PORT, () => console.log("Server is running on port:", PORT));
 
-
 // Import rendered pages.
 import {
   homePage,
@@ -39,9 +38,8 @@ import {
   htmlCssPage,
   ssrPage,
   adminPage,
-  adminDummyPage
+  adminDummyPage,
 } from "./util/prepPage.js";
-
 
 // Endpoints for routing
 

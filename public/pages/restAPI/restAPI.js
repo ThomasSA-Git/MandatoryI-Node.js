@@ -1,6 +1,5 @@
 import { escapeHTML } from "../../assets/js/escapeHTML.js";
 
-
 // Gets movies for the table
 getMovies();
 
@@ -28,11 +27,10 @@ function getMovies() {
 
       tbody.innerHTML = moviesTable;
     });
-};
+}
 
 // Get specific movie when searched for
 const getMovieBtn = document.getElementById("getMovieBtn");
-
 
 // Gets movie for patch input fields
 const getPatchMovieBtn = document.getElementById("getPatchMovieBtn");
@@ -42,14 +40,11 @@ getMovieBtn.addEventListener("click", () => {
   getMovie(false);
 });
 
-
-
 function getMovie(patch) {
   let getMovieName;
-  if(!patch){
+  if (!patch) {
     getMovieName = document.getElementById("getMovie").value;
-  }
-  else{
+  } else {
     getMovieName = document.getElementById("patchName").value;
   }
 
@@ -72,16 +67,16 @@ function getMovie(patch) {
         <strong>Production year: </strong>${result.prodYear}
         </p>`;
         desc.innerHTML = movieData;
-      }
-      else{
+      } else {
         document.getElementById("movieId").innerText = result.id;
         document.getElementById("patchName").value = result.name;
         document.getElementById("patchGenre").value = result.genre;
-        document.getElementById("patchProdYear").value = Number(result.prodYear);
+        document.getElementById("patchProdYear").value = Number(
+          result.prodYear
+        );
       }
     });
-};
-
+}
 
 // Post movie
 const postMovieBtn = document.getElementById("postMovieBtn");
@@ -111,14 +106,14 @@ postMovieBtn.addEventListener("click", () => {
       return response.json();
     })
     .then((result) => {
-      document.getElementById("response-message-post").innerText = "Post successful. Check table for result";
+      document.getElementById("response-message-post").innerText =
+        "Post successful. Check table for result";
       document.getElementById("postName").value = "";
       document.getElementById("postGenre").value = "";
       document.getElementById("postProdYear").value = null;
       getMovies();
     });
 });
-
 
 // Patch movie. Input in fields in html if you want to search or input manually.
 getPatchMovieBtn.addEventListener("click", () => {
@@ -149,13 +144,14 @@ patchMovieBtn.addEventListener("click", () => {
   })
     .then((response) => {
       if (!response.ok) {
-        document.getElementById("response-message").innerText = "Error"
+        document.getElementById("response-message").innerText = "Error";
         throw new Error("Error posting movie");
       }
       return response.json();
     })
     .then((result) => {
-      document.getElementById("response-message-patch").innerText = "Update successful. Check table for result";
+      document.getElementById("response-message-patch").innerText =
+        "Update successful. Check table for result";
       document.getElementById("movieId").innerText = undefined;
       document.getElementById("patchName").value = "";
       document.getElementById("patchGenre").value = "";
@@ -165,7 +161,6 @@ patchMovieBtn.addEventListener("click", () => {
 });
 
 // Delete movie
-
 const deleteMovieBtn = document.getElementById("deleteMovieBtn");
 
 deleteMovieBtn.addEventListener("click", () => {
@@ -174,7 +169,7 @@ deleteMovieBtn.addEventListener("click", () => {
     method: "DELETE",
     headers: {
       "Content-Type": "application/json",
-    }
+    },
   })
     .then((response) => {
       if (!response.ok) {
@@ -184,7 +179,8 @@ deleteMovieBtn.addEventListener("click", () => {
       return response.json();
     })
     .then((result) => {
-      document.getElementById("response-message-delete").innerText = "Delete successful. Check table for result";
+      document.getElementById("response-message-delete").innerText =
+        "Delete successful. Check table for result";
       document.getElementById("deleteMovie").value = "";
       getMovies();
     });
