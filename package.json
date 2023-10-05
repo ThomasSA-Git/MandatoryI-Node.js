@@ -1,6 +1,7 @@
 {
   "dependencies": {
-    "express": "^4.18.2"
+    "express": "^4.18.2",
+    "cross-env": "^7.0.3"
   },
   "name": "mandatory_i",
   "description": "mandatory assignment for node.js",
