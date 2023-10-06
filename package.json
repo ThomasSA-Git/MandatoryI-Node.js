@@ -10,6 +10,7 @@
   "main": "app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "npm install",
     "start:dev": "cross-env PORT=8080 nodemon app.js",
     "start:prod": "cross-env PORT=80 node app.js"
   },
